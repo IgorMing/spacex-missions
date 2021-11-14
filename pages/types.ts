@@ -13,7 +13,7 @@ interface Rocket {
   rocket_type: string;
 }
 
-interface Ship {
+export interface Ship {
   id: string;
   name: string;
   image: string;
