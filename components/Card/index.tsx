@@ -3,12 +3,16 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Ship } from "../../pages/types";
+import Button from "../Button";
 
 interface CardProps {
   id: string;
   title: string;
   subtitle?: string;
   ships?: Ship[];
+  launchSite?: string;
+  article?: string;
+  video?: string;
 }
 
 const PADDING = 5;
@@ -16,7 +20,7 @@ const PADDING = 5;
 const Card: React.FC<CardProps> = (props) => {
   return (
     <Flex
-      border="1px solid gray"
+      border="2px solid gray"
       marginBottom="5"
       flexDirection="column"
       width="100vh"
@@ -63,6 +67,28 @@ const Card: React.FC<CardProps> = (props) => {
           <Text fontSize="sm" color="gray">
             {props.subtitle}
           </Text>
+        )}
+        {props.launchSite && (
+          <Flex
+            alignItems="center"
+            flex={1}
+            flexDirection="column"
+            borderRadius={20}
+            border="1px solid gray"
+            padding={2}
+            marginTop={2}
+          >
+            <Text fontWeight="bold">Launch site</Text>
+            <Text>{props.launchSite}</Text>
+          </Flex>
+        )}
+        {(props.article || props.video) && (
+          <Flex justifyContent="space-around" padding={4}>
+            {props.article && (
+              <Button urlToOpen={props.article}>Article</Button>
+            )}
+            {props.video && <Button urlToOpen={props.video}>Vídeo</Button>}
+          </Flex>
         )}
       </Box>
     </Flex>

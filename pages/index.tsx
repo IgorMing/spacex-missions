@@ -14,16 +14,19 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
       backgroundColor="lightgray"
       justifyContent="center"
     >
-      <Text fontSize="2xl" color="black" paddingBottom={10}>
+      <Text fontSize="2xl" fontWeight="bold" color="black" paddingBottom={10}>
         Space X Launches
       </Text>
       {launches.map((mission) => (
         <Card
           id={mission.id}
           key={mission.id}
+          launchSite={mission.launch_site.site_name_long}
           title={mission.mission_name}
           ships={mission.ships}
           subtitle={mission.rocket.rocket_name}
+          article={mission.links.article_link}
+          video={mission.links.video_link}
         />
       ))}
     </Flex>

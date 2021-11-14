@@ -10,7 +10,6 @@ export const LAUNCHES_QUERY = `
       links {
         article_link
         video_link
-        mission_patch
       }
       rocket {
         rocket_name
