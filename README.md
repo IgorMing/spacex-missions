@@ -21,7 +21,7 @@ let's run it!
 ```shell
 $ yarn dev
 
-# or npm run dev
+# or `npm run dev`
 ```
 
 Now you can see the project running on: `http://localhost:3000`.
