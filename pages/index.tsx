@@ -8,6 +8,7 @@ import Card from "../components/Card";
 import Empty from "../components/Empty";
 import { HomeProps } from "../components/types";
 import { getQuery } from "../queries";
+import Head from "next/head";
 
 const Home: NextPage<HomeProps> = ({ launches }) => {
   const [data, setData] = useState(launches);
@@ -44,6 +45,10 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
 
   return (
     <>
+      <Head>
+        <title>SpaceX Missions</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Flex
         backgroundColor="gray.500"
         alignItems="center"

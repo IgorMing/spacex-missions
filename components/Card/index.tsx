@@ -27,7 +27,8 @@ const Card: React.FC<CardProps> = (props) => {
       width={isMobile ? "100%" : "300px"}
       background="gray.300"
       borderRadius={isMobile ? 0 : 10}
-      marginLeft={isMobile ? 0 : 5}
+      marginLeft={2}
+      marginRight={2}
     >
       {!props.ships?.length ? (
         <NoImage isMobile={isMobile} />
