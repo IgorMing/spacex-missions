@@ -86,6 +86,7 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
         flexWrap="wrap"
         justifyContent="center"
         alignItems="center"
+        paddingBottom="40vh"
       >
         {renderData()}
       </Flex>
