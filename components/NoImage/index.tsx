@@ -10,7 +10,7 @@ const NoImage: React.VFC<NoImageProps> = ({ isMobile }) => {
     <Image
       borderTopLeftRadius={isMobile ? 0 : 10}
       borderTopRightRadius={isMobile ? 0 : 10}
-      src="https://via.placeholder.com/350X300"
+      src="https://via.placeholder.com/350X220"
       alt="No image found"
       objectFit="cover"
     />

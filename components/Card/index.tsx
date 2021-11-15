@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = (props) => {
       border="2px solid gray"
       marginBottom={5}
       flexDirection="column"
-      width={isMobile ? "100%" : "300px"}
+      width={isMobile ? "100%" : "400px"}
       background="gray.300"
       borderRadius={isMobile ? 0 : 10}
       marginLeft={2}
