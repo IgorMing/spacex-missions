@@ -8,28 +8,37 @@ import { HomeProps } from "./types";
 
 const Home: NextPage<HomeProps> = ({ launches }) => {
   return (
-    <Flex
-      paddingTop="5vh"
-      flexWrap="wrap"
-      backgroundColor="lightgray"
-      justifyContent="center"
-    >
-      <Text fontSize="2xl" fontWeight="bold" color="black" paddingBottom={10}>
-        Space X Launches
-      </Text>
-      {launches.map((mission) => (
-        <Card
-          id={mission.id}
-          key={mission.id}
-          launchSite={mission.launch_site.site_name_long}
-          title={mission.mission_name}
-          ships={mission.ships}
-          subtitle={mission.rocket.rocket_name}
-          article={mission.links.article_link}
-          video={mission.links.video_link}
-        />
-      ))}
-    </Flex>
+    <>
+      <Flex
+        backgroundColor="lightgray"
+        justifyContent="center"
+        paddingTop="5vh"
+      >
+        <Text fontSize="2xl" fontWeight="bold" color="black" paddingBottom={10}>
+          Space X Launches
+        </Text>
+      </Flex>
+      <Flex
+        width="100%"
+        backgroundColor="lightgray"
+        flexWrap="wrap"
+        justifyContent="center"
+        alignItems="center"
+      >
+        {launches.map((mission) => (
+          <Card
+            id={mission.id}
+            key={mission.id}
+            launchSite={mission.launch_site.site_name_long}
+            title={mission.mission_name}
+            ships={mission.ships}
+            subtitle={mission.rocket.rocket_name}
+            article={mission.links.article_link}
+            video={mission.links.video_link}
+          />
+        ))}
+      </Flex>
+    </>
   );
 };
 
