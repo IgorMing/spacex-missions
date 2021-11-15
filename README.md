@@ -24,6 +24,8 @@ $ yarn dev
 # or npm run dev
 ```
 
+Now you can see the project running on: `http://localhost:3000`.
+
 ## Tools used
 
 - NextJS

@@ -5,8 +5,9 @@ import type { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import client from "../apollo-client";
 import Card from "../components/Card";
-import { getQuery } from "../queries";
+import Empty from "../components/Empty";
 import { HomeProps } from "../components/types";
+import { getQuery } from "../queries";
 
 const Home: NextPage<HomeProps> = ({ launches }) => {
   const [data, setData] = useState(launches);
@@ -20,6 +21,25 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
     });
 
     setData(response.data.launchesPast);
+  }
+
+  function renderData() {
+    if (!data.length) {
+      return <Empty />;
+    }
+
+    return data.map((mission) => (
+      <Card
+        id={mission.id}
+        key={mission.id}
+        launchSite={mission.launch_site.site_name_long}
+        title={mission.mission_name}
+        ships={mission.ships}
+        subtitle={mission.rocket.rocket_name}
+        article={mission.links.article_link}
+        video={mission.links.video_link}
+      />
+    ));
   }
 
   return (
@@ -44,6 +64,11 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
             onChange={(e) => setFilter(e.target.value)}
             borderTopRightRadius={0}
             borderBottomRightRadius={0}
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                searchData();
+              }
+            }}
           />
           <Button
             borderTopLeftRadius={0}
@@ -62,18 +87,7 @@ const Home: NextPage<HomeProps> = ({ launches }) => {
         justifyContent="center"
         alignItems="center"
       >
-        {data.map((mission) => (
-          <Card
-            id={mission.id}
-            key={mission.id}
-            launchSite={mission.launch_site.site_name_long}
-            title={mission.mission_name}
-            ships={mission.ships}
-            subtitle={mission.rocket.rocket_name}
-            article={mission.links.article_link}
-            video={mission.links.video_link}
-          />
-        ))}
+        {renderData()}
       </Flex>
     </>
   );
