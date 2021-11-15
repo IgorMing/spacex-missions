@@ -2,8 +2,9 @@ import { Box, Flex, Image, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Ship } from "../types";
 import Button from "../Button";
+import NoImage from "../NoImage";
+import { Ship } from "../types";
 
 interface CardProps {
   id: string;
@@ -29,39 +30,42 @@ const Card: React.FC<CardProps> = (props) => {
       marginLeft={isMobile ? 0 : 5}
     >
       {!props.ships?.length ? (
-        <Image
-          borderTopLeftRadius={isMobile ? 0 : 10}
-          borderTopRightRadius={isMobile ? 0 : 10}
-          src="https://via.placeholder.com/350X300"
-          alt="No image found"
-          objectFit="cover"
-        />
+        <NoImage isMobile={isMobile} />
       ) : (
         <Carousel showArrows showThumbs={false} onChange={() => {}}>
-          {props.ships.map((ship) => (
-            <div key={ship.id}>
-              <Image
-                key={ship.id}
-                src={ship.image}
-                alt={ship.name}
-                borderTopLeftRadius={isMobile ? 0 : 10}
-                borderTopRightRadius={isMobile ? 0 : 10}
-                boxSize={isMobile ? "40vh" : "30vh"}
-                objectFit="cover"
-              />
-              <Text
-                position="absolute"
-                left={0}
-                top={0}
-                color="black"
-                backgroundColor="gray.200"
-                padding={1.5}
-                borderRadius={5}
-              >
-                {ship.name}
-              </Text>
-            </div>
-          ))}
+          {props.ships.map((ship) => {
+            if (!ship) return <></>;
+
+            return (
+              <div key={ship.id}>
+                {!ship?.image ? (
+                  <NoImage isMobile={isMobile} />
+                ) : (
+                  <Image
+                    key={ship.id}
+                    src={ship.image}
+                    alt={ship.name}
+                    borderTopLeftRadius={isMobile ? 0 : 10}
+                    borderTopRightRadius={isMobile ? 0 : 10}
+                    boxSize={isMobile ? "40vh" : "30vh"}
+                    objectFit="cover"
+                  />
+                )}
+
+                <Text
+                  position="absolute"
+                  left={0}
+                  top={0}
+                  color="black"
+                  backgroundColor="gray.200"
+                  padding={1.5}
+                  borderRadius={5}
+                >
+                  {ship.name}
+                </Text>
+              </div>
+            );
+          })}
         </Carousel>
       )}
       <Box padding={5}>

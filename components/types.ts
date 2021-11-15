@@ -16,7 +16,7 @@ interface Rocket {
 export interface Ship {
   id: string;
   name: string;
-  image: string;
+  image?: string;
 }
 
 interface LaunchProps {
