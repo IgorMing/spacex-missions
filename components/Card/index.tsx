@@ -2,7 +2,7 @@ import { Box, Flex, Image, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Ship } from "../../pages/types";
+import { Ship } from "../types";
 import Button from "../Button";
 
 interface CardProps {

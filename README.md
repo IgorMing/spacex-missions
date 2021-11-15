@@ -36,6 +36,6 @@ $ yarn dev
 ## Observations
 
 - This was the first time I worked with Chakra, and I thought it's awesome. Really productive coding style declaratively. _(Remembered flutter)_
-- I wondered to apply a dynamic amount of data to be retrieved _(current is `10` hardcoded)_. But I really get tired now. haha
+- I wondered to apply a dynamic amount of data to be retrieved, pagination or something like that _(current is `10` hardcoded)_.
 
 Thank you guys! I hope you like it.

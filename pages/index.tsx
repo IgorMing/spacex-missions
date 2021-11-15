@@ -6,7 +6,7 @@ import { useState } from "react";
 import client from "../apollo-client";
 import Card from "../components/Card";
 import { getQuery } from "../queries";
-import { HomeProps } from "./types";
+import { HomeProps } from "../components/types";
 
 const Home: NextPage<HomeProps> = ({ launches }) => {
   const [data, setData] = useState(launches);
