@@ -35,9 +35,6 @@ Now you can see the project running on: `http://localhost:3000`.
 - [React Responsive Carousel](https://github.com/leandrowd/react-responsive-carousel)
 - [Eslint Plugin Import](https://www.npmjs.com/package/eslint-plugin-import)
 
-## Observations
-
-- This was the first time I worked with Chakra, and I thought it's awesome. Really productive coding style declaratively. _(Remembered flutter)_
-- I wondered to apply a dynamic amount of data to be retrieved, pagination or something like that _(current is `10` hardcoded)_.
+> **OBS:** This was the first time I worked with Chakra UI, and I thought it's awesome. Really productive coding declaratively. _(Remembered Flutter)_
 
 Thank you guys! I hope you like it.

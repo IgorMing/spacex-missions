@@ -1,6 +1,6 @@
 export const getQuery = (missionName: string = "") => `
   query GetPastLaunches {
-    launchesPast(limit: 10, find: {mission_name:"${missionName}"}) {
+    launchesPast(find: {mission_name:"${missionName}"}) {
       id
       mission_name
       launch_date_local
