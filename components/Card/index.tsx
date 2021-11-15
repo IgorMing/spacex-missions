@@ -24,27 +24,28 @@ const Card: React.FC<CardProps> = (props) => {
       marginBottom={5}
       flexDirection="column"
       width={isMobile ? "100%" : "300px"}
-      background="#eeeeee"
+      background="gray.300"
+      borderRadius={isMobile ? 0 : 10}
       marginLeft={isMobile ? 0 : 5}
     >
       {!props.ships?.length ? (
         <Image
-          src="https://via.placeholder.com/350X250"
+          borderTopLeftRadius={isMobile ? 0 : 10}
+          borderTopRightRadius={isMobile ? 0 : 10}
+          src="https://via.placeholder.com/350X300"
           alt="No image found"
           objectFit="cover"
         />
       ) : (
-        <Carousel
-          showArrows
-          showThumbs={false}
-          onChange={(i) => console.log(i)}
-        >
+        <Carousel showArrows showThumbs={false} onChange={() => {}}>
           {props.ships.map((ship) => (
             <div key={ship.id}>
               <Image
                 key={ship.id}
                 src={ship.image}
                 alt={ship.name}
+                borderTopLeftRadius={isMobile ? 0 : 10}
+                borderTopRightRadius={isMobile ? 0 : 10}
                 boxSize={isMobile ? "40vh" : "30vh"}
                 objectFit="cover"
               />
@@ -53,8 +54,8 @@ const Card: React.FC<CardProps> = (props) => {
                 left={0}
                 top={0}
                 color="black"
-                backgroundColor="lightgray"
-                padding={1}
+                backgroundColor="gray.200"
+                padding={1.5}
                 borderRadius={5}
               >
                 {ship.name}
@@ -83,7 +84,7 @@ const Card: React.FC<CardProps> = (props) => {
             marginTop={2}
           >
             <Text fontWeight="bold">Launch site</Text>
-            <Text>{props.launchSite}</Text>
+            <Text textAlign="center">{props.launchSite}</Text>
           </Flex>
         )}
         {(props.article || props.video) && (
